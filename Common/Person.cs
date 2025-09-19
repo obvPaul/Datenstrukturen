@@ -14,7 +14,7 @@ namespace Common
             get => _geschlecht;
             set
             {
-                if (value != "männlich" && value != "weiblich" && value != "Männlich" && value != "Weiblich")
+                if (value != "maennlich" && value != "weiblich" && value != "Maennlich" && value != "Weiblich")
                 {
                     throw new ArgumentException("Ungültiges Geschlecht eingegeben!");
                 }
