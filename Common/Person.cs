@@ -14,7 +14,7 @@ namespace Common
             get => _geschlecht;
             set
             {
-                if (value != "männlich" && value != "weiblich" && value != "Männlich" && value != "Weiblich")
+                if (value.ToLower() != "maennlich" && value.ToLower() != "weiblich")
                 {
                     throw new ArgumentException("Ungültiges Geschlecht eingegeben!");
                 }
