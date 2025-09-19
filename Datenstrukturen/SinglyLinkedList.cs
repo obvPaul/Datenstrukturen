@@ -9,7 +9,7 @@ namespace Datenstrukturen
 {
     public class SinglyLinkedList
     {
-        public static Node insertAtEnd(Node head, Person person)
+        public static Node InsertAtEnd(Node head, Person person)
         {
             Node newNode = new Node(person);
             if (head == null)
@@ -24,7 +24,7 @@ namespace Datenstrukturen
             last.Next = newNode;
             return head;
         }
-        public static Node searchNode(Node head, string name)
+        public static Node SearchNode(Node head, string name)
         {
             Node current = head;
             while (current != null)
