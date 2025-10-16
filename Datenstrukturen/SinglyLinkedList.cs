@@ -5,12 +5,15 @@ namespace Datenstrukturen
 {
     public class SinglyLinkedList
     {
-        public static Node<Person> InsertAtEnd(Node<Person>? head, Person person)
+        private Node<Person>? head = null;
+
+        public Node<Person> InsertAtEnd(Person person)
         {
             var newNode = new Node<Person>(person);
             if (head == null)
             {
-                return newNode;
+                head = newNode;
+                return head;
             }
 
             var last = head;
@@ -23,7 +26,7 @@ namespace Datenstrukturen
             return head;
         }
 
-        public static Node<Person>? SearchNode(Node<Person>? head, string name)
+        public Node<Person>? SearchNode(string name)
         {
             var current = head;
             while (current != null)
@@ -37,19 +40,21 @@ namespace Datenstrukturen
             return null;
         }
 
-        public static Node<Person> InsertBefore(Node<Person>? head, Person elementAfter, Person elementToInsert)
+        public Node<Person> InsertBefore(Person elementAfter, Person elementToInsert)
         {
             var newNode = new Node<Person>(elementToInsert);
 
             if (head == null)
             {
-                return newNode;
+                head = newNode;
+                return head;
             }
 
             if (head.data.Name == elementAfter.Name)
             {
                 newNode.Next = head;
-                return newNode;
+                head = newNode;
+                return head;
             }
 
             var current = head;
@@ -67,11 +72,12 @@ namespace Datenstrukturen
             return head;
         }
 
-        public static Node<Person> InsertAfter(Node<Person>? head, Person elementBefore, Person elementToInsert)
+        public Node<Person> InsertAfter(Person elementBefore, Person elementToInsert)
         {
             if (head == null)
             {
-                return new Node<Person>(elementToInsert);
+                head = new Node<Person>(elementToInsert);
+                return head;
             }
 
             var current = head;
@@ -87,6 +93,11 @@ namespace Datenstrukturen
                 current.Next = newNode;
             }
 
+            return head;
+        }
+
+        public Node<Person>? GetHead()
+        {
             return head;
         }
     }
