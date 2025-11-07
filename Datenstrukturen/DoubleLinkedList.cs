@@ -81,5 +81,34 @@ namespace Datenstrukturen
 
         public Node<T>? GetHead() => head;
         public Node<T>? GetTail() => tail;
+        public void BubbleSort(IComparer<T> comparer)
+        {
+            if (head == null || head.Next == null)
+                return;
+
+            bool swapped;
+
+            do
+            {
+                swapped = false;
+                var current = head;
+
+                while (current!.Next != null)
+                {
+                    if (comparer.Compare(current.data, current.Next.data) > 0)
+                    {
+                        var temp = current.data;
+                        current.data = current.Next.data;
+                        current.Next.data = temp;
+                        swapped = true;
+                    }
+
+                    current = current.Next;
+                }
+
+            } while (swapped);
+        }
     }
+
 }
+

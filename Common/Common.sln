@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datenstrukturen", "..\Datenstrukturen\Datenstrukturen.csproj", "{6F14E898-D2BD-4C02-875D-566830262BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinglyLinkedListTesting", "..\SinglyLinkedListTesting\SinglyLinkedListTesting.csproj", "{F6BCE76B-01CD-4159-872B-3FFB6D29835D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructureTesting", "..\SinglyLinkedListTesting\DataStructureTesting.csproj", "{F6BCE76B-01CD-4159-872B-3FFB6D29835D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
