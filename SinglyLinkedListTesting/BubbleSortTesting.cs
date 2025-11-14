@@ -1,18 +1,21 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Datenstrukturen;
 using Common;
+using SortingAlgorithms;
 
-namespace Tests
+namespace BubbleSortTesting
 {
-    public class DoubleLinkedListBubbleSortTests
+    [TestFixture]
+    public class Tests
     {
-        private DoubleLinkedList<Person> list;
+        private DoubleLinkedList<Person> _list = null!;
+        private ListSorter<Person> _sorter = null!;
 
         [SetUp]
         public void Setup()
         {
-            list = new DoubleLinkedList<Person>();
+            _list = new DoubleLinkedList<Person>();
+            _sorter = new ListSorter<Person>(new BubbleSort<Person>());
         }
 
         [Test]
@@ -22,14 +25,13 @@ namespace Tests
             var p2 = new Person(new DateTime(2002, 1, 1), "maennlich", "Onur");
             var p3 = new Person(new DateTime(2001, 1, 1), "maennlich", "Maurice");
 
-            list.InsertAtEnd(p1);
-            list.InsertAtEnd(p2);
-            list.InsertAtEnd(p3);
+            _list.InsertAtEnd(p1);
+            _list.InsertAtEnd(p2);
+            _list.InsertAtEnd(p3);
 
-            list.BubbleSort(Comparer<Person>.Create((a, b) => a.Name.CompareTo(b.Name)));
+            _sorter.Sort(_list.GetHead());
 
-            var head = list.GetHead();
-
+            var head = _list.GetHead();
             Assert.That(head!.data.Name, Is.EqualTo("Maurice"));
             Assert.That(head.Next!.data.Name, Is.EqualTo("Onur"));
             Assert.That(head.Next.Next!.data.Name, Is.EqualTo("Sally"));
@@ -38,20 +40,18 @@ namespace Tests
         [Test]
         public void BubbleSort_EmptyList_ShouldNotThrow()
         {
-            Assert.DoesNotThrow(() =>
-                list.BubbleSort(Comparer<Person>.Create((a, b) => a.Name.CompareTo(b.Name)))
-            );
+            Assert.DoesNotThrow(() => _sorter.Sort(_list.GetHead()));
         }
 
         [Test]
         public void BubbleSort_ListWithOneElement_ShouldRemainUnchanged()
         {
             var p = new Person(new DateTime(2001, 1, 1), "maennlich", "Maylin");
-            list.InsertAtEnd(p);
+            _list.InsertAtEnd(p);
 
-            list.BubbleSort(Comparer<Person>.Create((a, b) => a.Name.CompareTo(b.Name)));
+            _sorter.Sort(_list.GetHead());
 
-            Assert.That(list.GetHead()!.data.Name, Is.EqualTo("Maylin"));
+            Assert.That(_list.GetHead()!.data.Name, Is.EqualTo("Maylin"));
         }
     }
 }
