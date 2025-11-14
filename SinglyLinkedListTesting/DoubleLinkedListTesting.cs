@@ -29,9 +29,9 @@ namespace DoubleLinkedListTesting
             var head = list.GetHead();
             var tail = list.GetTail();
 
-            Assert.That(head.Data.Name, Is.EqualTo("Onur"));
-            Assert.That(head.Next.Data.Name, Is.EqualTo("Maurice"));
-            Assert.That(tail.Prev.Data.Name, Is.EqualTo("Onur"));
+            Assert.That(head.data.Name, Is.EqualTo("Onur"));
+            Assert.That(head.Next.data.Name, Is.EqualTo("Maurice"));
+            Assert.That(tail.Prev.data.Name, Is.EqualTo("Onur"));
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace DoubleLinkedListTesting
             var found = list.SearchNode(p => p.Name == "Sally");
 
             Assert.That(found, Is.Not.Null);
-            Assert.That(found.Data.Name, Is.EqualTo("Sally"));
+            Assert.That(found.data.Name, Is.EqualTo("Sally"));
         }
 
         [Test]
@@ -72,8 +72,8 @@ namespace DoubleLinkedListTesting
             list.InsertBefore(p2, p3, PersonComparer);
 
             var head = list.GetHead();
-            Assert.That(head.Next.Data.Name, Is.EqualTo("Maylin"));
-            Assert.That(head.Next.Next.Data.Name, Is.EqualTo("Maurice"));
+            Assert.That(head.Next.data.Name, Is.EqualTo("Maylin"));
+            Assert.That(head.Next.Next.data.Name, Is.EqualTo("Maurice"));
         }
 
         [Test]
@@ -86,8 +86,8 @@ namespace DoubleLinkedListTesting
             list.InsertBefore(p1, p2, PersonComparer);
 
             var head = list.GetHead();
-            Assert.That(head.Data.Name, Is.EqualTo("Maurice"));
-            Assert.That(head.Next.Data.Name, Is.EqualTo("Onur"));
+            Assert.That(head.data.Name, Is.EqualTo("Maurice"));
+            Assert.That(head.Next.data.Name, Is.EqualTo("Onur"));
         }
 
         [Test]
@@ -102,9 +102,9 @@ namespace DoubleLinkedListTesting
             list.InsertAfter(p1, p3, PersonComparer);
 
             var head = list.GetHead();
-            Assert.That(head.Next.Data.Name, Is.EqualTo("Maylin"));
-            Assert.That(head.Next.Next.Data.Name, Is.EqualTo("Maurice"));
-            Assert.That(head.Next.Prev.Data.Name, Is.EqualTo("Onur"));
+            Assert.That(head.Next.data.Name, Is.EqualTo("Maylin"));
+            Assert.That(head.Next.Next.data.Name, Is.EqualTo("Maurice"));
+            Assert.That(head.Next.Prev.data.Name, Is.EqualTo("Onur"));
         }
 
         [Test]
@@ -117,8 +117,8 @@ namespace DoubleLinkedListTesting
             list.InsertAfter(p1, p2, PersonComparer);
 
             var tail = list.GetTail();
-            Assert.That(tail.Data.Name, Is.EqualTo("Maurice"));
-            Assert.That(tail.Prev.Data.Name, Is.EqualTo("Onur"));
+            Assert.That(tail.data.Name, Is.EqualTo("Maurice"));
+            Assert.That(tail.Prev.data.Name, Is.EqualTo("Onur"));
         }
     }
 }

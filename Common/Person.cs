@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Common
 {
-    public class Person
+    public class Person : IComparable<Person>
     {
         public int Id { get; set; }
 
@@ -32,6 +32,11 @@ namespace Common
             Name = name;
             Geburtstag = geburtstag;
             Geschlecht = geschlecht;
+        }
+        public int CompareTo(Person? other)
+        {
+            if (other == null) return 1;
+            return Name.CompareTo(other.Name);
         }
     }
 }
