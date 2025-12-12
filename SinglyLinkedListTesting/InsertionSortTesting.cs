@@ -4,10 +4,10 @@ using Common;
 using SortingAlgorithms;
 using System;
 
-namespace DataStructureTesting
+namespace InsertionSortTesting
 {
     [TestFixture]
-    public class DoubleLinkedListInsertionSortTests
+    public class Tests
     {
         private DoubleLinkedList<Person> list = null!;
 
