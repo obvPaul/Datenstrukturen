@@ -3,13 +3,15 @@ using Common;
 
 namespace Datenstrukturen
 {
-    public class DoubleLinkedList<T>
+    public class DoubleLinkedList<T> where T : IComparable<T>
     {
         private Node<T>? head;
         private Node<T>? tail;
 
         public Node<T>? GetHead() => head;
         public Node<T>? GetTail() => tail;
+
+        private ISortAlgorithm<T> sortAlgorithm;
 
         public bool IsEmpty() => head == null;
 
@@ -95,6 +97,18 @@ namespace Datenstrukturen
 
                 current = current.Next;
             }
+        }
+
+        public void SetSortAlgorithm(ISortAlgorithm<T> algorithm)
+        {
+            sortAlgorithm = algorithm;
+        }
+
+        public void Sort()
+        {
+            if (sortAlgorithm == null)
+                throw new InvalidOperationException("Sort algorithm not set.");
+            sortAlgorithm.Sort(head!);
         }
     }
 }
